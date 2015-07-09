@@ -17,7 +17,7 @@ int read_string(char **out_string, int max_buffer)
     return 0;
 
 error:
-    if(*out+string) free(*out_string);
+    if(*out_string) free(*out_string);
     *out_string = NULL;
     return -1;
 }
@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
     check(rc == 0, "Failed last name.");
 
     printf("How old are you? ");
-    rc = read_scan(%d, &age);
+    rc = read_scan("%d", &age);
 
     printf("---- Results ----\n");
     printf("First Name: %s", first_name);
